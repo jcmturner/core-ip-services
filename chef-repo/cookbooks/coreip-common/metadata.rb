@@ -1,0 +1,7 @@
+name 'coreip-common'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures coreip-common'
+long_description 'Installs/Configures coreip-common'
+version '0.1.0'

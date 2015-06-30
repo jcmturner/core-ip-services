@@ -1,0 +1,8 @@
+name 'skydns'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures skydns'
+long_description 'Installs/Configures skydns'
+version '0.1.0'
+depends 'coreip-common'
