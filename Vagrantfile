@@ -1,8 +1,8 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "fedora-22"
-  config.vm.box_url = "http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/22/Cloud/x86_64/Images/Fedora-Cloud-Base-Vagrant-22-20150521.x86_64.vagrant-virtualbox.box"
-  config.vm.box_download_checksum = "2513342f70c00310e161a110e34973a133691fedd866859e65904fa056ae7a0c"
-  config.vm.box_download_checksum_type = "sha256"
+  config.vm.box = "chef/centos-7.0"
+  #config.vm.box_url = "http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/22/Cloud/x86_64/Images/Fedora-Cloud-Base-Vagrant-22-20150521.x86_64.vagrant-virtualbox.box"
+  #config.vm.box_download_checksum = "2513342f70c00310e161a110e34973a133691fedd866859e65904fa056ae7a0c"
+  #config.vm.box_download_checksum_type = "sha256"
   config.vm.provider "virtualbox" do |v|
     v.memory = 768
     v.cpus = 1
@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 #  (1..3).each do |i|
 #    config.vm.define "etcd#{i}", primary: true do |etcd|
 #      etcd.vm.hostname = "etcd#{i}.coreip1.com"
-#      etcd.vm.network "private_network", ip: "10.80.30.1#{i}", netmask: "255.255.0.0"
+#      etcd.vm.network "private_network", ip: "10.80.31.1#{i}", netmask: "255.255.0.0"
 #      #etcd.vm.provision "chef_solo" do |chef|
 #      #  chef.add_recipe "coreip-common"
 #      #end
@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
 #  (1..2).each do |i|
 #    config.vm.define "skydns#{i}", primary: true do |skydns|
 #      skydns.vm.hostname = "skydns#{i}.coreip1.com"
-#      skydns.vm.network "private_network", ip: "10.80.20.1#{i}", netmask: "255.255.0.0"
+#      skydns.vm.network "private_network", ip: "10.80.21.1#{i}", netmask: "255.255.0.0"
 #      skydns.vm.provision :shell, path: "bootstrap.sh"
 #      skydns.vm.provision :shell, path: "bootstrap-chef-trigger.sh", args: "skydns"
 #    end

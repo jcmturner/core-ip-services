@@ -1,0 +1,9 @@
+<% node['forward-zone'].each do |zone, forwardtoip| -%>
+    <% unless forwardtoip.empty? -%>
+      zone "<%= zone %>" {
+        type forward;
+        forward only;
+        forwarders { <%= forwardtoip %>; };
+      };
+    <% end %>
+<% end %>

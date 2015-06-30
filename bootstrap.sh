@@ -7,6 +7,3 @@ rpm -i https://opscode-omnibus-packages.s3.amazonaws.com/el/7/x86_64/chef-12.4.0
 alternatives --set python /usr/bin/python2.7
 python --version 
 
-#Temporary hack until chef works properly with dnf rather than yum
-dnf install yum -y
-
