@@ -1,18 +1,14 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "chef/centos-7.0"
+  ### The following is to use fedora as a base box but this does not work well with chef due to F22 using dnf rather than yum
   #config.vm.box_url = "http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/fedora/linux/releases/22/Cloud/x86_64/Images/Fedora-Cloud-Base-Vagrant-22-20150521.x86_64.vagrant-virtualbox.box"
   #config.vm.box_download_checksum = "2513342f70c00310e161a110e34973a133691fedd866859e65904fa056ae7a0c"
   #config.vm.box_download_checksum_type = "sha256"
+  ###
   config.vm.provider "virtualbox" do |v|
     v.memory = 768
     v.cpus = 1
   end
-  #config.vm.provision "chef_solo" do |chef|
-  #  #Specify the local paths where Chef data is stored
-  #  chef.cookbooks_path = "chef-repo/cookbooks"
-  #  chef.roles_path = "chef-repo/roles"
-  #end
-
 
 #etcd cluster coreip1.com
 #  (1..3).each do |i|

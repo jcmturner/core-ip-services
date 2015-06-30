@@ -1,9 +1,13 @@
-<% node['forward-zone'].each do |zone, forwardtoip| -%>
+<% node['forward-zone'].each do |zone, forwardtoips| -%>
+zone "<%= zone %>" {
+  type forward;
+  forward only;
+  forwarders { 
+  <% forwardtoips.each do |forwardtoip| -%>
     <% unless forwardtoip.empty? -%>
-      zone "<%= zone %>" {
-        type forward;
-        forward only;
-        forwarders { <%= forwardtoip %>; };
-      };
+    <%= forwardtoip %>;
     <% end %>
+  <% end %>
+  };
+};
 <% end %>
