@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     v.cpus = 1
   end
 
-#etcd cluster coreip1.com
+### etcd cluster coreip1.com
 #  (1..3).each do |i|
 #    config.vm.define "etcd#{i}", primary: true do |etcd|
 #      etcd.vm.hostname = "etcd#{i}.coreip1.com"
@@ -23,8 +23,8 @@ Vagrant.configure("2") do |config|
 #    end
 #  end
 
-#skydns headend nodes coreip1.com
-#  (1..2).each do |i|
+### skydns headend nodes coreip1.com
+#  (1..1).each do |i|
 #    config.vm.define "skydns#{i}", primary: true do |skydns|
 #      skydns.vm.hostname = "skydns#{i}.coreip1.com"
 #      skydns.vm.network "private_network", ip: "10.80.21.1#{i}", netmask: "255.255.0.0"
@@ -33,15 +33,15 @@ Vagrant.configure("2") do |config|
 #    end
 #  end
   
-#bind caching recursive resolver layer
-  (1..1).each do |i|
-    config.vm.define "bind#{i}", primary: true do |bind|
-      bind.vm.hostname = "bind#{i}.coreip.com"
-      bind.vm.network "private_network", ip: "10.80.10.1#{i}", netmask: "255.255.0.0"
-      bind.vm.provision :shell, path: "bootstrap.sh"
-      bind.vm.provision :shell, path: "bootstrap-chef-trigger.sh", args: "bind"
-    end
-  end
+### bind caching recursive resolver layer
+#  (1..1).each do |i|
+#    config.vm.define "bind#{i}", primary: true do |bind|
+#      bind.vm.hostname = "bind#{i}.coreip.com"
+#      bind.vm.network "private_network", ip: "10.80.10.1#{i}", netmask: "255.255.0.0"
+#      bind.vm.provision :shell, path: "bootstrap.sh"
+#      bind.vm.provision :shell, path: "bootstrap-chef-trigger.sh", args: "bind"
+#    end
+#  end
 
 
 end
