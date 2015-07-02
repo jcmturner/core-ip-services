@@ -11,3 +11,9 @@ zone "<%= zone %>" {
   };
 };
 <% end %>
+
+zone "etcd-discovery.intranet" {
+	type master;
+	file "/var/named/data/db.etcd-discovery.intranet";
+};
+

@@ -11,17 +11,17 @@ Vagrant.configure("2") do |config|
   end
 
 ### etcd cluster coreip1.com
-#  (1..3).each do |i|
-#    config.vm.define "etcd#{i}", primary: true do |etcd|
-#      etcd.vm.hostname = "etcd#{i}.coreip1.com"
-#      etcd.vm.network "private_network", ip: "10.80.31.1#{i}", netmask: "255.255.0.0"
-#      #etcd.vm.provision "chef_solo" do |chef|
-#      #  chef.add_recipe "coreip-common"
-#      #end
-#      etcd.vm.provision :shell, path: "bootstrap.sh"
-#      etcd.vm.provision :shell, path: "bootstrap-chef-trigger.sh", args: "etcd"
-#    end
-#  end
+  (1..1).each do |i|
+    config.vm.define "etcd#{i}", primary: true do |etcd|
+      etcd.vm.hostname = "etcd#{i}.coreip1.com"
+      etcd.vm.network "private_network", ip: "10.80.31.1#{i}", netmask: "255.255.0.0"
+      #etcd.vm.provision "chef_solo" do |chef|
+      #  chef.add_recipe "coreip-common"
+      #end
+      etcd.vm.provision :shell, path: "bootstrap.sh"
+      etcd.vm.provision :shell, path: "bootstrap-chef-trigger.sh", args: "etcd"
+    end
+  end
 
 ### skydns headend nodes coreip1.com
 #  (1..1).each do |i|
@@ -33,15 +33,15 @@ Vagrant.configure("2") do |config|
 #    end
 #  end
   
-### bind caching recursive resolver layer
-#  (1..1).each do |i|
-#    config.vm.define "bind#{i}", primary: true do |bind|
-#      bind.vm.hostname = "bind#{i}.coreip.com"
-#      bind.vm.network "private_network", ip: "10.80.10.1#{i}", netmask: "255.255.0.0"
-#      bind.vm.provision :shell, path: "bootstrap.sh"
-#      bind.vm.provision :shell, path: "bootstrap-chef-trigger.sh", args: "bind"
-#    end
-#  end
+### bind caching recursive resolver layer and etcd cluster discovery zone
+  (1..1).each do |i|
+    config.vm.define "bind#{i}", primary: true do |bind|
+      bind.vm.hostname = "bind#{i}.coreip.com"
+      bind.vm.network "private_network", ip: "10.80.10.1#{i}", netmask: "255.255.0.0"
+      bind.vm.provision :shell, path: "bootstrap.sh"
+      bind.vm.provision :shell, path: "bootstrap-chef-trigger.sh", args: "bind"
+    end
+  end
 
 
 end

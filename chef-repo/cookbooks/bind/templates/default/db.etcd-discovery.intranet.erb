@@ -1,0 +1,14 @@
+$TTL    86400
+@       IN      SOA     etcd-discovery.intranet. <%= node['hostname'] %>.etcd-discovery.intranet. (
+                     2015070201         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                          86400 )       ; Negative Cache TTL
+;
+@               IN      NS      etcd-discovery.intranet.
+		IN	A	<%= @host_net_ip %>
+<%= node['hostname'] %>		IN	A	<%= @host_net_ip %>
+_etcd-server._tcp	300 	IN   	SRV 0 0 2380 etcd1.etcd-discovery.intranet.
+etcd1		IN	A	10.80.31.11
+
