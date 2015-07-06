@@ -10,10 +10,8 @@ template '/etc/named.conf' do
   })
 end
 
-
-### The zone for etcd cluster discovery using SRV records
-template '/var/named/data/db.etcd-discovery.intranet' do
-  source 'db.etcd-discovery.intranet.erb'
+template '/var/named/data/db.coreip.intranet' do
+  source 'db.coreip.intranet.erb'
   owner 'root'
   group 'named'
   mode '0640'

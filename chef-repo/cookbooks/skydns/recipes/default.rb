@@ -20,6 +20,8 @@ service 'etcd' do
   action [:stop, :disable]
 end
 
+include_recipe 'coreip-common::resolv'
+
 service 'skydns' do
   action [:restart, :enable]
 end

@@ -1,24 +1,21 @@
 # [member]
-ETCD_NAME=<%= node['fqdn'] %>
-ETCD_DATA_DIR="/var/lib/etcd/<%= node['domain'] %>.etcd"
+ETCD_NAME=<%= node['hostname'] %>
+ETCD_DATA_DIR="/var/lib/etcd/<%= node[:coreip][:domain] %>.etcd"
 #ETCD_SNAPSHOT_COUNTER="10000"
 #ETCD_HEARTBEAT_INTERVAL="100"
 #ETCD_ELECTION_TIMEOUT="1000"
-ETCD_LISTEN_PEER_URLS="http://<%= @host_net_ip %>:2380,http://<%= @host_net_ip %>:7001"
-ETCD_LISTEN_CLIENT_URLS="http://<%= @host_net_ip %>:4001"
+ETCD_LISTEN_PEER_URLS="http://<%= @host_net_ip %>:2380"
+ETCD_LISTEN_CLIENT_URLS="http://<%= @host_net_ip %>:4001,http://127.0.0.1:4001"
 #ETCD_MAX_SNAPSHOTS="5"
 #ETCD_MAX_WALS="5"
 #ETCD_CORS=""
 #
 #[cluster]
-#ETCD_INITIAL_ADVERTISE_PEER_URLS="http://<%= @host_net_ip %>:2380,http://<%= @host_net_ip %>:7001"
-# if you use different ETCD_NAME (e.g. test), set ETCD_INITIAL_CLUSTER value for this name, i.e. "test=http://..."
-ETCD_INITIAL_CLUSTER="<%= node['domain'] %>=http://<%= @host_net_ip %>:2380,default=http://<%= @host_net_ip %>:7001"
+ETCD_INITIAL_ADVERTISE_PEER_URLS="http://<%= @host_net_ip %>:2380"
 ETCD_INITIAL_CLUSTER_STATE="new"
-ETCD_INITIAL_CLUSTER_TOKEN="<%= node['domain'] %>"
-ETCD_ADVERTISE_CLIENT_URLS="http://<%= @host_net_ip %>:2379,http://<%= @host_net_ip %>:4001"
-#ETCD_DISCOVERY=""
-ETCD_DISCOVERY_SRV="etcd-discovery.intranet"
+ETCD_INITIAL_CLUSTER_TOKEN="<%= node[:coreip][:domain] %>"
+ETCD_ADVERTISE_CLIENT_URLS="http://<%= @host_net_ip %>:4001"
+ETCD_DISCOVERY_SRV="coreip.intranet"
 #ETCD_DISCOVERY_FALLBACK="proxy"
 #ETCD_DISCOVERY_PROXY=""
 #

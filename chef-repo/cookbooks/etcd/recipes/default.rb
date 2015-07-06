@@ -14,6 +14,8 @@ template '/etc/etcd/etcd.conf' do
   })
 end
 
+include_recipe 'coreip-common::resolv'
+
 service 'etcd' do
   action [:enable, :start]
 end
