@@ -1,6 +1,7 @@
 ## Vagrant installation of skydns/etcd/vulcand infrastructure simulation.
 
 ### Diagram of Setup
+```
 
                                         DNS Query                                        
                                             |                                            
@@ -33,6 +34,7 @@
                    |                                                |                    
                    |                                                |                    
           API CRUD operations                              API CRUD operations           
+```
 
 
 
