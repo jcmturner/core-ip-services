@@ -2,7 +2,7 @@
   "name": "etcd2.coreip.intranet",
   "normal": {
     "coreip": {
-      "domain": "coreip1.com"
+      "domain": "coreip-a.com"
     },
     "tags": [
 
@@ -16,7 +16,7 @@
         "model": "61",
         "model_name": "Intel(R) Core(TM) i5-5287U CPU @ 2.90GHz",
         "stepping": "4",
-        "mhz": "2906.662",
+        "mhz": "2906.672",
         "cache_size": "6144 KB",
         "physical_id": "0",
         "core_id": "0",
@@ -63,8 +63,8 @@
     "filesystem": {
       "/dev/mapper/centos-root": {
         "kb_size": "40325900",
-        "kb_used": "1137536",
-        "kb_available": "39188364",
+        "kb_used": "1150612",
+        "kb_available": "39175288",
         "percent_used": "3%",
         "mount": "/",
         "total_inodes": "40345600",
@@ -145,8 +145,8 @@
       },
       "none": {
         "kb_size": "243924992",
-        "kb_used": "117468904",
-        "kb_available": "126456088",
+        "kb_used": "118929068",
+        "kb_available": "124995924",
         "percent_used": "49%",
         "mount": "/vagrant",
         "total_inodes": "1000",
@@ -270,6 +270,14 @@
           "seclabel"
         ]
       },
+      "debugfs": {
+        "mount": "/sys/kernel/debug",
+        "fs_type": "debugfs",
+        "mount_options": [
+          "rw",
+          "relatime"
+        ]
+      },
       "mqueue": {
         "mount": "/dev/mqueue",
         "fs_type": "mqueue",
@@ -277,14 +285,6 @@
           "rw",
           "relatime",
           "seclabel"
-        ]
-      },
-      "debugfs": {
-        "mount": "/sys/kernel/debug",
-        "fs_type": "debugfs",
-        "mount_options": [
-          "rw",
-          "relatime"
         ]
       },
       "sunrpc": {
@@ -326,16 +326,16 @@
           "size": "36533",
           "refcount": "0"
         },
-        "serio_raw": {
-          "size": "13462",
+        "ppdev": {
+          "size": "17671",
           "refcount": "0"
         },
         "pcspkr": {
           "size": "12718",
           "refcount": "0"
         },
-        "ppdev": {
-          "size": "17671",
+        "parport_pc": {
+          "size": "28165",
           "refcount": "0"
         },
         "vboxvideo": {
@@ -346,6 +346,22 @@
           "size": "297829",
           "refcount": "1"
         },
+        "serio_raw": {
+          "size": "13462",
+          "refcount": "0"
+        },
+        "video": {
+          "size": "19267",
+          "refcount": "0"
+        },
+        "e1000": {
+          "size": "149270",
+          "refcount": "0"
+        },
+        "parport": {
+          "size": "42348",
+          "refcount": "2"
+        },
         "i2c_piix4": {
           "size": "22106",
           "refcount": "0"
@@ -354,25 +370,9 @@
           "size": "40325",
           "refcount": "2"
         },
-        "e1000": {
-          "size": "149270",
-          "refcount": "0"
-        },
-        "parport_pc": {
-          "size": "28165",
-          "refcount": "0"
-        },
-        "parport": {
-          "size": "42348",
-          "refcount": "2"
-        },
         "vboxguest": {
           "size": "269118",
           "refcount": "2"
-        },
-        "video": {
-          "size": "19267",
-          "refcount": "0"
         },
         "mperf": {
           "size": "12667",
@@ -459,26 +459,26 @@
         "free": "1081340kB"
       },
       "total": "760208kB",
-      "free": "106852kB",
+      "free": "112048kB",
       "buffers": "1444kB",
-      "cached": "392520kB",
-      "active": "200808kB",
-      "inactive": "340488kB",
-      "dirty": "35544kB",
+      "cached": "392544kB",
+      "active": "195748kB",
+      "inactive": "340512kB",
+      "dirty": "42656kB",
       "writeback": "0kB",
-      "anon_pages": "153468kB",
-      "mapped": "25972kB",
-      "slab": "80092kB",
-      "slab_reclaimable": "51828kB",
-      "slab_unreclaim": "28264kB",
-      "page_tables": "4664kB",
+      "anon_pages": "142292kB",
+      "mapped": "25960kB",
+      "slab": "80084kB",
+      "slab_reclaimable": "51744kB",
+      "slab_unreclaim": "28340kB",
+      "page_tables": "4672kB",
       "nfs_unstable": "0kB",
       "bounce": "0kB",
       "commit_limit": "1461444kB",
-      "committed_as": "432728kB",
+      "committed_as": "432644kB",
       "vmalloc_total": "34359738367kB",
       "vmalloc_used": "22112kB",
-      "vmalloc_chunk": "34359713404kB"
+      "vmalloc_chunk": "34359713916kB"
     },
     "network": {
       "interfaces": {
@@ -582,8 +582,8 @@
           },
           "state": "up",
           "arp": {
-            "10.0.2.3": "52:54:00:12:35:03",
-            "10.0.2.2": "52:54:00:12:35:02"
+            "10.0.2.2": "52:54:00:12:35:02",
+            "10.0.2.3": "52:54:00:12:35:03"
           },
           "routes": [
             {
@@ -620,7 +620,7 @@
           ],
           "encapsulation": "Ethernet",
           "addresses": {
-            "08:00:27:AB:CA:79": {
+            "08:00:27:00:FE:57": {
               "family": "lladdr"
             },
             "10.80.31.12": {
@@ -630,7 +630,7 @@
               "broadcast": "10.80.255.255",
               "scope": "Global"
             },
-            "fe80::a00:27ff:feab:ca79": {
+            "fe80::a00:27ff:fe00:fe57": {
               "family": "inet6",
               "prefixlen": "64",
               "scope": "Link"
@@ -686,16 +686,16 @@
           "enp0s3": {
             "tx": {
               "queuelen": "1000",
-              "bytes": "719062",
-              "packets": "11282",
+              "bytes": "1557127",
+              "packets": "25213",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
               "collisions": "0"
             },
             "rx": {
-              "bytes": "48206271",
-              "packets": "44493",
+              "bytes": "49061992",
+              "packets": "58484",
               "errors": "0",
               "drop": "0",
               "overrun": "0"
@@ -704,16 +704,16 @@
           "enp0s8": {
             "tx": {
               "queuelen": "1000",
-              "bytes": "9580",
-              "packets": "66",
+              "bytes": "6757",
+              "packets": "52",
               "errors": "0",
               "drop": "0",
               "carrier": "0",
               "collisions": "0"
             },
             "rx": {
-              "bytes": "1586",
-              "packets": "5",
+              "bytes": "270",
+              "packets": "2",
               "errors": "0",
               "drop": "0",
               "overrun": "0"
@@ -724,7 +724,7 @@
     },
     "ipaddress": "10.0.2.15",
     "macaddress": "08:00:27:C3:36:F0",
-    "ip6address": "fe80::a00:27ff:feab:ca79",
+    "ip6address": "fe80::a00:27ff:fe00:fe57",
     "lsb": {
 
     },
@@ -733,10 +733,10 @@
     "platform": "centos",
     "platform_version": "7.0.1406",
     "platform_family": "rhel",
-    "uptime_seconds": 61,
-    "uptime": "1 minutes 01 seconds",
-    "idletime_seconds": 30,
-    "idletime": "30 seconds",
+    "uptime_seconds": 90,
+    "uptime": "1 minutes 30 seconds",
+    "idletime_seconds": 59,
+    "idletime": "59 seconds",
     "virtualization": {
       "systems": {
         "vbox": "guest"
@@ -838,7 +838,7 @@
             "Product Name": "VirtualBox",
             "Version": "1.2",
             "Serial Number": "0",
-            "UUID": "F14B90DA-E8EC-4676-9590-3C9AB7D4EEAB",
+            "UUID": "7FA0CD69-0BDA-424C-90C5-C7282F37A669",
             "Wake-up Type": "Power Switch",
             "SKU Number": "Not Specified",
             "Family": "Virtual Machine"
@@ -848,7 +848,7 @@
         "product_name": "VirtualBox",
         "version": "1.2",
         "serial_number": "0",
-        "uuid": "F14B90DA-E8EC-4676-9590-3C9AB7D4EEAB",
+        "uuid": "7FA0CD69-0BDA-424C-90C5-C7282F37A669",
         "wake_up_type": "Power Switch",
         "sku_number": "Not Specified",
         "family": "Virtual Machine"
@@ -960,7 +960,7 @@
         "rotational": "1"
       }
     },
-    "ohai_time": 1436207613.3554516,
+    "ohai_time": 1436287191.4637432,
     "etc": {
       "passwd": {
         "root": {

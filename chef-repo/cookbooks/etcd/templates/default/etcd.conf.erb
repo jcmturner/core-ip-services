@@ -11,7 +11,7 @@ ETCD_LISTEN_CLIENT_URLS="http://<%= @host_net_ip %>:4001,http://127.0.0.1:4001"
 #ETCD_CORS=""
 #
 #[cluster]
-ETCD_INITIAL_ADVERTISE_PEER_URLS="http://<%= @host_net_ip %>:2380"
+ETCD_INITIAL_ADVERTISE_PEER_URLS="http://<%= node['fqdn'] %>:2380"
 ETCD_INITIAL_CLUSTER_STATE="new"
 ETCD_INITIAL_CLUSTER_TOKEN="<%= node[:coreip][:domain] %>"
 ETCD_ADVERTISE_CLIENT_URLS="http://<%= @host_net_ip %>:4001"
