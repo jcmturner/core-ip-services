@@ -1,1 +1,2 @@
 chef-repo/nodes/**
+yum-repo/repodata/**
