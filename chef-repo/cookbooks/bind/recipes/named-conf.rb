@@ -10,8 +10,17 @@ template '/etc/named.conf' do
   })
 end
 
-template '/var/named/data/db.coreip.intranet' do
-  source 'db.coreip.intranet.erb'
+template '/var/named/data/db.coreip-a-discovery.intranet' do
+  source 'db.coreip-a-discovery.intranet.erb'
+  owner 'root'
+  group 'named'
+  mode '0640'
+  variables({
+    "host_net_ip" => host_net_ip
+  })
+end
+template '/var/named/data/db.coreip-b-discovery.intranet' do
+  source 'db.coreip-b-discovery.intranet.erb'
   owner 'root'
   group 'named'
   mode '0640'

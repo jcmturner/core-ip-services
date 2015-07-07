@@ -11,11 +11,11 @@ ETCD_LISTEN_CLIENT_URLS="http://<%= @host_net_ip %>:4001,http://127.0.0.1:4001"
 #ETCD_CORS=""
 #
 #[cluster]
-ETCD_INITIAL_ADVERTISE_PEER_URLS="http://<%= node['fqdn'] %>:2380"
+ETCD_INITIAL_ADVERTISE_PEER_URLS="http://<%= node['hostname'] %>.<%= node[:coreip][:domain] %>-discovery.intranet:2380"
 ETCD_INITIAL_CLUSTER_STATE="new"
 ETCD_INITIAL_CLUSTER_TOKEN="<%= node[:coreip][:domain] %>"
 ETCD_ADVERTISE_CLIENT_URLS="http://<%= @host_net_ip %>:4001"
-ETCD_DISCOVERY_SRV="coreip.intranet"
+ETCD_DISCOVERY_SRV="<%= node[:coreip][:domain] %>-discovery.intranet"
 #ETCD_DISCOVERY_FALLBACK="proxy"
 #ETCD_DISCOVERY_PROXY=""
 #

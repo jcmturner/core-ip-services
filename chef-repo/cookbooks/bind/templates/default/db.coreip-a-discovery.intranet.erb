@@ -1,16 +1,16 @@
 $TTL    86400
-@       IN      SOA     coreip.intranet. <%= node['hostname'] %>.coreip.intranet. (
+@       IN      SOA     coreip-a-discovery.intranet. <%= node['hostname'] %>.coreip-a-discovery.intranet. (
                      2015070201         ; Serial
                          604800         ; Refresh
                           86400         ; Retry
                         2419200         ; Expire
                           86400 )       ; Negative Cache TTL
 ;
-@               IN      NS      coreip.intranet.
+@               IN      NS      coreip-a-discovery.intranet.
 		IN	A	<%= @host_net_ip %>
 <%= node['hostname'] %>		IN	A	<%= @host_net_ip %>
-_etcd-server._tcp       300     IN      SRV 0 0 2380 etcd-a1.coreip.intranet.
-_etcd-server._tcp       300     IN      SRV 0 0 2380 etcd-a2.coreip.intranet.
+_etcd-server._tcp       300     IN      SRV 0 0 2380 etcd-a1.coreip-a-discovery.intranet.
+_etcd-server._tcp       300     IN      SRV 0 0 2380 etcd-a2.coreip-a-discovery.intranet.
 etcd-a1		IN	A	10.80.31.11
 etcd-a2		IN	A	10.80.31.12
 etcd-a3		IN	A	10.80.31.13

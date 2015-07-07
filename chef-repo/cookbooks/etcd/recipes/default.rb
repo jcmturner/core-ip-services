@@ -19,3 +19,9 @@ include_recipe 'coreip-common::resolv'
 service 'etcd' do
   action [:enable, :start]
 end
+
+# Following is commented out as cannot set value until all etcd hosts are up. Has to execute on etc1 before etcd2 is up and therefore fails.
+## Had to put sleep in to wait for the service to start
+#execute 'insert_test_skyDNS_entry' do
+#  command "sleep 10; /bin/etcdctl set /skydns/com/#{node[:coreip][:domain]}/test \'{\"host\":\"1.2.3.4\"}\'"
+#end

@@ -12,8 +12,12 @@ zone "<%= zone %>" {
 };
 <% end %>
 
-zone "coreip.intranet" {
+zone "coreip-a-discovery.intranet" {
 	type master;
-	file "/var/named/data/db.coreip.intranet";
+	file "/var/named/data/db.coreip-a-discovery.intranet";
+};
+zone "coreip-b-discovery.intranet" {
+	type master;
+	file "/var/named/data/db.coreip-b-discovery.intranet";
 };
 
