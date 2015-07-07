@@ -41,14 +41,8 @@ This project aims to provide a simple vagrant set up for a reference architectur
 ### Quick Start
 ```
 git clone https://github.com/jcmturner/core-ip-services.git && cd core-ip-services
-```
-```
 vagrant up
-```
-```
 curl -XPUT http://10.80.31.11:4001/v2/keys/skydns/com/coreip-a/test -d value='{"host":"1.2.3.4"}'
-```
-```
 curl -XPUT http://10.80.32.11:4001/v2/keys/skydns/com/coreip-b/test -d value='{"host":"4.3.2.1"}'
 ```
 ```
