@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
   #config.vm.box_download_checksum_type = "sha256"
   ###
   config.vm.provider "virtualbox" do |v|
-    v.memory = 768
+    v.memory = 256
     v.cpus = 1
   end
 
